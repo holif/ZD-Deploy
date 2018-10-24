@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head th:include="temp::head"></head>
+	<body>
+		<div class="site-wrapper">
+			<div class="site-wrapper-inner">
+				<div class="cover-container">
+					<div class="masthead clearfix"  th:include="temp::nav"> </div>
+				</div>
+				<div class="app-table">
+					<h2>Node</h2>
+					<br/>
+					<table class="table" id="nodetable">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>HostName</th>
+								<th>Host</th>
+								<th>Operation</th>
+								<th>Deploy</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for = "node in nodes">
+								<td>{{ node.id }}</td>
+								<td>{{ node.hostName }}</td>
+								<td>{{ node.host }}</td>
+								<td><a href="#">Update</a>/<a href="#">Delete</a></td>
+								<td><a href="#">Look</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<script src="/js/node.js"></script>
+	</body>
+</html>

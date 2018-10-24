@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head th:include="temp::head"></head>
+
+	<body>
+		<div class="site-wrapper">
+			<div class="site-wrapper-inner">
+				<div class="cover-container">
+					<div class="masthead clearfix"  th:include="temp::nav"> </div>
+				</div>
+				<div class="app-table">
+					<h2>Deploy  Logs</h2>
+					<br/>
+					<table class="table" id="logtable">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>UserName</th>
+								<th>Comment</th>
+								<th>Service</th>
+								<th>Version</th>
+								<th>Time</th>
+								<th>LoginIP</th>
+								<th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for = "log in logs">
+								<td>{{ log.id }}</td>
+								<td>{{ log.operatorName }}</td>
+								<td>{{ log.comment }}</td>
+								<td>{{ log.serviceName }}</td>
+								<td>{{ log.serviceVersion }}</td>
+								<td>{{ log.time }}</td>
+								<td>{{ log.loginIp }}</td>
+								<td>{{ log.isSuccess==1?"Success":"Fail" }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<script src="/js/log.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head th:include="temp::head"></head>
+	<body>
+		<div class="site-wrapper">
+			<div class="site-wrapper-inner">
+				<div class="cover-container">
+					<div class="masthead clearfix"  th:include="temp::nav"> </div>
+				</div>
+				<div class="app-table"  id="apptable">
+					<h2>App</h2>
+					<br/>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Project</th>
+								<th>FileName</th>
+								<th>Service</th>
+								<th>DeployPath</th>
+								<th>User/Group</th>
+								<th>Operation</th>
+								<th>DeployInfo</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for = "app in apptables">
+								<td>{{ app.id }}</td>
+								<td>{{ app.project }}</td>
+								<td>{{ app.fileName }}</td>
+								<td>{{ app.serviceName }}</td>
+								<td>{{ app.deployPath }}</td>
+								<td>{{ app.user }}</td>
+								<td><a href="#">Updaue</a>/<a href="#">Delete</a></td>
+								<td><a href="#">Look</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<script src="/js/app.js"></script>
+	</body>
+</html>
